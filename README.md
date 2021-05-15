@@ -20,6 +20,44 @@ BDN9 middle-right button -> F19 (QMK) -> AutoHotKey (activates iTunes, passes in
 This github project has the associated QMK and AutoHotKey files for my BDN9 macro board.  
 Tested only on Windows 10  
 
+# Layers
+I have two layers.  The base layer controls iTunes (mostly) and Volume controls.  Some LED controls (cycle through RGB modes, on/off) with the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
+
+When in the second layer, the "underglow" LEDs will turn red (hard to see, honestly)
+
+## Layer 0 (\_BASE)
+```
+    /*
+        | Knob 1: Vol Dn/Up   |                       | Knob 2: RBG+        |
+        | Press: Mute         | F16 (AHK controlled)  | Press: RBG off/on   |
+       	---------------------------------------------------------------------
+        | F14 (AHK controlled)| F17 (AHK controlled)  | F19 (AHK controlled)|
+        ---------------------------------------------------------------------
+        | Toggle(1)           | F18                   | F20                 |
+     */
+```
+
+## Layer 1 (\_LED)
+```
+    /*
+        | Knob 1: Hue        |                    | Knob 2: LED Speed  |
+        | Press: Mute        | (Falls to layer 0) | Press: RBG off/on  |
+      	---------------------------------------------------------------
+        | RGB Mode Plain     | RGB Mode Breathing | (Falls to layer 0) |
+	      ---------------------------------------------------------------
+        | (Falls to layer 0) | RGB Mode Swirl     | RGB Mode Rainbow   |
+     */
+```
+
+# AutoHotKey Mapping
+
+The following keys will be intercepted to control iTunes application.  
+* F14 - iTunes back (ctl-left arrow)  
+* F16 - iTunes pause/play toggle (ctl-space)  
+* F17 - iTunes mini player toggle (ctl-shit-M)  
+* F19 - iTunes next (ctl-right arrow)  
+
+
 # AutoHotKey Instructions  
 Install AutoHotKey from https://www.autohotkey.com/  
 Save myitunes_FuncKeys.ahk file to your Windows 10 system.  
@@ -27,13 +65,8 @@ Right click, select "Compile Script".  This will create the myitunes_FuncKeys.ex
 Double click on the exe file to start the program.  
 
 To see if AHK is running, you should see a AutoHotKey icon in the lower right tray.  It can be killed via right-click on icon or TaskManager.
-Start iTunes.  It can be minimized and not in focus.  
 
-Once AHK exe is running, then the following keys will be intercepted to control iTunes application.  
-* F14 - iTunes back (ctl-left arrow)  
-* F16 - iTunes pause/play toggle (ctl-space)  
-* F17 - iTunes mini player toggle (ctl-shit-M)  
-* F19 - iTunes next (ctl-right arrow)  
+Start iTunes.  It can be minimized and not in focus.  Now, Function keys will be intercepted by AHK.
 
 TODO:  Figure out how to get this exe to start automatically on Windows boot.  Should be easy, just too lazy to Google it.
 
@@ -83,39 +116,13 @@ Steps
 1. Open the "bin" file generated.
 2. Select Auto Flash
 3. Select Flash when ready
+![QMK Tookbox Image1](/images/Toolkit_1.png)
 4. Reset the BDN9 board with small screwdriver pushing the reset button on the back
 5. Wait for the flash to complete
+![QMK Tookbox Image2](/images/Toolkit_2.png)
+
 
 Note:  You should hear the sounds of the USB being disconnected and reconnected at the end.
 
-![QMK Tookbox Image](/images/Toolkit_1.png)
 
-# Layers
-I have two layers.  The base layer controls iTunes (mostly) and Volume controls.  Some LED controls (cycle through RGB modes, on/off) with the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
-
-When in the second layer, the "underglow" LEDs will turn red (hard to see, honestly)
-
-## Layer 0 (\_BASE)
-```
-    /*
-        | Knob 1: Vol Dn/Up   |                       | Knob 2: RBG+        |
-        | Press: Mute         | F16 (AHK controlled)  | Press: RBG off/on   |
-       	---------------------------------------------------------------------
-        | F14 (AHK controlled)| F17 (AHK controlled)  | F19 (AHK controlled)|
-        ---------------------------------------------------------------------
-        | Toggle(1)           | F18                   | F20                 |
-     */
-```
-
-## Layer 1 (\LED)
-```
-    /*
-        | Knob 1: Hue        |                    | Knob 2: LED Speed  |
-        | Press: Mute        | (Falls to layer 0) | Press: RBG off/on  |
-      	---------------------------------------------------------------
-        | RGB Mode Plain     | RGB Mode Breathing | (Falls to layer 0) |
-	      ---------------------------------------------------------------
-        | (Falls to layer 0) | RGB Mode Swirl     | RGB Mode Rainbow   |
-     */
-```
 
