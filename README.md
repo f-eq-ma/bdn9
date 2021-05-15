@@ -88,7 +88,7 @@ Steps
 
 Note:  You should hear the sounds of the USB being disconnected and reconnected at the end.
 
-
+![QMK Tookbox Image](/images/Toolkit_1.png)
 
 # Layers
 I have two layers.  The base layer controls iTunes (mostly) and Volume controls.  Some LED controls (cycle through RGB modes, on/off) with the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
