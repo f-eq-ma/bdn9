@@ -56,8 +56,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TG(1)  , KC_F18, KC_F20
     ),
     /*
-        | (Falls to layer 0) | (Falls to layer 0) | (Falls to layer 0) |
-	---------------------------------------------------------------
+        | Knob 1: Hue        |                    | Knob 2: LED Speed  |
+        | Press: Mute        | (Falls to layer 0) | Press: RBG off/on  |
+      	---------------------------------------------------------------
         | RGB Mode Plain     | RGB Mode Breathing | (Falls to layer 0) |
 	---------------------------------------------------------------
         | (Falls to layer 0) | RGB Mode Swirl     | RGB Mode Rainbow   |
