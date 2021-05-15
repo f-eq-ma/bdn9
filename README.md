@@ -115,11 +115,11 @@ Copying keebio_bdn9_rev2_f-eq-ma.bin to qmk_firmware folder            [OK]
 Steps
 1. Open the "bin" file generated.
 2. Select Auto Flash
-3. Select Flash when ready
-![QMK Tookbox Image1](/images/Toolkit_1.png)
+3. Select Flash when ready  
+![QMK Tookbox Image1](/images/Toolkit_1.png)  
 4. Reset the BDN9 board with small screwdriver pushing the reset button on the back
-5. Wait for the flash to complete
-![QMK Tookbox Image2](/images/Toolkit_2.png)
+5. Wait for the flash to complete  
+![QMK Tookbox Image2](/images/Toolkit_2.png)  
 
 
 Note:  You should hear the sounds of the USB being disconnected and reconnected at the end.
