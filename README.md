@@ -1,5 +1,5 @@
 # Introduction
-I wanted a project to practice soldering keyboards and get familar with QMK in prep for building my first mechanical keyboard. My goal was to have a macro pad that can control iTunes.  
+I wanted a project to practice soldering keyboards and get familiar with QMK in prep for building my first mechanical keyboard. My goal was to have a macro pad that can control iTunes.  
 
 The [BDN9](https://keeb.io/products/bdn9-3x3-9-key-macropad-rotary-encoder-support) board from Keebio ticked all of the check boxes.
 * 9 key switches to solder, but no tricky SMD
