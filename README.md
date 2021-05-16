@@ -23,7 +23,7 @@ Tested only on Windows 10
 # Layers
 I have two layers.  The base layer controls iTunes (mostly) and Volume controls.  Some LED controls (cycle through RGB modes, on/off) with the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
 
-When in the second layer, the "underglow" LEDs will turn red (hard to see, honestly)
+When in the second layer, the "underglow" LEDs will turn red (hard to see, honestly).  Shout out to u/psychephylax on Reddit's r/olkb for the [pointers](https://www.reddit.com/r/olkb/comments/n3gezj/bdn9_rev2_confirmation_that_leds_cannot_be/).
 
 ## Layer 0 (\_BASE)
 ```
@@ -128,6 +128,8 @@ Note:  You should hear the sounds of the USB being disconnected and reconnected 
 # Build Images
 
 I was too excited about building out my first board, I totally forgot to take any photos.  The two I have are below.
+
+I should note that I bought a GMMK Switch Sample Pack and those were the switches I used on this board.  So, this doubled as a switch tester for me.
 
 Here, I used a role of masking tape to hold up the board since the encoders stuck up causing the board to miss-align.  
 <image src="images/bdn9_soldering.jpeg" width=25% height=25%>  
