@@ -22,7 +22,7 @@ This github project has the associated QMK and AutoHotKey files for my BDN9 macr
 # Important  
 Nothing in this project is guaranteed.  I claim no responsibilty for the quality of this information or for your actions.  Read, learn, play in a safe environment. If you have questions or find a bug or whatnot, log an Issue against the project.  I will try to pay attention. 
 
-# Layers
+# QMK Layers
 I have two layers.  The base layer controls iTunes (mostly) and Volume controls with some LED controls (cycle through RGB modes, on/off) using the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
 
 When in the second layer, the "underglow" LEDs will turn red (hard to see, honestly).  Shout out to u/psychephylax on Reddit's r/olkb for the [pointers](https://www.reddit.com/r/olkb/comments/n3gezj/bdn9_rev2_confirmation_that_leds_cannot_be/).
@@ -61,10 +61,10 @@ The following keys will be intercepted to control iTunes application.
 
 # AutoHotKey Instructions  
 *Note: Rough notes, probably incomplete*  
-Install AutoHotKey from https://www.autohotkey.com/  
-Save myitunes_FuncKeys.ahk file to your Windows 10 system.  
-Right click, select "Compile Script".  This will create the myitunes_FuncKeys.exe file.  
-Double click on the exe file to start the program.  
+* Install AutoHotKey from https://www.autohotkey.com/  
+* Save myitunes_FuncKeys.ahk file to your Windows 10 system.  
+* Right click, select "Compile Script".  This will create the myitunes_FuncKeys.exe file.  
+* Double click on the exe file to start the program.  
 
 To see if AHK is running, you should see a AutoHotKey icon in the lower right tray.  It can be killed via right-click on icon or TaskManager.  
 
@@ -86,7 +86,7 @@ https://docs.qmk.fm/#/newbs
 * Setup QMK MSYS environment per instructions  
 * Installed in a "qmk_firmware" folder.  Mention it because, that folder may be seen in the below examples AND it is arbitrary.  
 * The install of QMK MSYS and its setup downloaded a ton of files...like 3.7 GB and nearly 80,000 files.   My anti-virus was NOT happy with the extra work, and I am pretty sure my work laptop was flagged for IT Security to take a look at.  
-* The setup of QMK clones their github repo...that is another 700 MB and 35,000 files.  
+* The setup of QMK, clones their github repo...that is another 700 MB and 35,000 files.  
 
 Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable for me.  
 
@@ -125,14 +125,15 @@ Steps
 2. Select Auto Flash  
 3. Select Flash when ready  
 <img src="images/Toolkit_1.png" width=50% height=50%>  
-4. Reset the BDN9 board with small screwdriver pushing the reset button on the back  
+
+4. Reset the BDN9 board with small screwdriver pushing the reset button on the back.  
 5. Wait for the flash to complete  
 <img src="images/Toolkit_2.png" width=50% height=50%>  
 
 Note:  You should hear the sounds of the USB being disconnected and reconnected at the end.  
 
 # Build Images  
-I was too excited about building out my first board, I totally forgot to take any photos.  The two I have are below.  
+I was too excited about building out my first board.  I totally forgot to take many photos.  The two I have are below.  
 
 I should note that I bought a [GMMK Switch Sample Pack](https://www.amazon.com/Glorious-Switch-Tester-Mechanical-Keyboards-PC/dp/B078FMPZ8R?ref_=ast_sto_dp) and those were the switches I used on this board.  So, this doubled as a switch tester for me.  
 
