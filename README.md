@@ -82,7 +82,8 @@ Used to flash the firmware to the BDN9
 
 QMK Setup Instructions:  
 https://docs.qmk.fm/#/newbs  
-* Setup QMK MSYS environment per instructions  
+* Setup QMK MSYS environment per instructions 
+* Installed in a "qmk_firmware" folder.  Mention it because, that folder may be seen in the below examples AND it is arbitrary. 
 
 Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable for me.  
 
@@ -91,13 +92,15 @@ Commands I used:
 ```qmk setup
 qmk config user.keyboard=keebio/bdn9/rev2
 qmk config user.keymap=f-eq-ma
-qmk new-keymap   ## Builds folder ./qmk_firmware/keyboards/keebio/bdn9/keymaps/f-eq-ma
+qmk new-keymap   ## Builds folder ./keyboards/keebio/bdn9/keymaps/f-eq-ma
 
 set -o vi       ## vi is just better
 alias vi='vim'  ## I'm old
 
 cd keyboards/keebio/bdn9/keymaps/f-eq-ma
-rm keymap.c     ## replace with github contents
+
+## replace with github contents
+rm keymap.c     
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/keymap.c
 rm config.h
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/config.h
@@ -105,7 +108,7 @@ wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/config.h
 ## !!Be Patient!!
 qmk compile -kb keebio/bdn9/rev2 -km f-eq-ma
 
-## Should see something like
+## Should see a message like the following.
 Copying keebio_bdn9_rev2_f-eq-ma.bin to qmk_firmware folder            [OK]
 
 ## This is the "bin" file to use in the QMK Toolbox application to flash the BDN9
@@ -129,11 +132,11 @@ Note:  You should hear the sounds of the USB being disconnected and reconnected 
 
 I was too excited about building out my first board, I totally forgot to take any photos.  The two I have are below.
 
-I should note that I bought a GMMK Switch Sample Pack and those were the switches I used on this board.  So, this doubled as a switch tester for me.
+I should note that I bought a [GMMK Switch Sample Pack](https://www.amazon.com/Glorious-Switch-Tester-Mechanical-Keyboards-PC/dp/B078FMPZ8R?ref_=ast_sto_dp) and those were the switches I used on this board.  So, this doubled as a switch tester for me.
 
-Here, I used a role of masking tape to hold up the board since the encoders stuck up causing the board to miss-align.  
+Here, I used a roll of masking tape to hold up the board since the encoders caused the board to miss-align prior to soldering.  
 <image src="images/bdn9_soldering.jpeg" width=25% height=25%>  
 	
-Final product, prior to custom QMK work, so the LEDs are the default setup.  
+Final product, prior to custom QMK work, so the LEDs are the default setup.  I prefer blues...  
 <image src="images/bdn9_finished.jpeg" width=25% height=25%>  
 
