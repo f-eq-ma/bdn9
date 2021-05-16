@@ -20,7 +20,7 @@ BDN9 middle-right button -> F19 (QMK) -> AutoHotKey (activates iTunes, passes in
 This github project has the associated QMK and AutoHotKey files for my BDN9 macro board. Tested only on Windows 10.  Other operating systems may or may not work.
 
 # Important  
-Nothing in this project is guaranteed.  I claim no responsibilty for the quality of this information or for your actions.  Read, learn, play in a safe environment.  
+Nothing in this project is guaranteed.  I claim no responsibilty for the quality of this information or for your actions.  Read, learn, play in a safe environment. If you have questions or find a bug or whatnot, log an Issue against the project.  I will try to pay attention. 
 
 # Layers
 I have two layers.  The base layer controls iTunes (mostly) and Volume controls with some LED controls (cycle through RGB modes, on/off) using the right encoder.  The second layer has the encoders setup to change the LED hue (colors) and the speed of LED transitions.  Some buttons on the second layer will fall back to the base layer so I can still control iTunes, but others will change the LED modes.
