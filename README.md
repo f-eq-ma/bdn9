@@ -8,7 +8,7 @@ The [BDN9](https://keeb.io/products/bdn9-3x3-9-key-macropad-rotary-encoder-suppo
 * Bonus LEDS!
 * Cheap!\*
 
-\* Cheap is very relative...I probably have $60 in this project.
+\* *Cheap is very relative...I probably have $60 in this project.*  
 
 The reason for using AutoHotKey to intercept Function keys is due to the fact that AutoHotKey can search for minimized Windows applications (aka iTunes), activate that window, pass the key strokes, then return to the original Windows application.   This allows me to be working in a PuTTy window, have a bad song come up, and quickly skip it, without really impacting my active window/work-flow.
 
@@ -59,6 +59,7 @@ The following keys will be intercepted to control iTunes application.
 
 
 # AutoHotKey Instructions  
+*Note: Rough notes, probably incomplete*  
 Install AutoHotKey from https://www.autohotkey.com/  
 Save myitunes_FuncKeys.ahk file to your Windows 10 system.  
 Right click, select "Compile Script".  This will create the myitunes_FuncKeys.exe file.  
@@ -85,7 +86,8 @@ https://docs.qmk.fm/#/newbs
 * Setup QMK MSYS environment per instructions  
 
 Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable  
-    
+
+*Note: Rough notes, probably incomplete*    
 Commands I used:  
 ```qmk setup
 qmk config user.keyboard=keebio/bdn9/rev2
@@ -116,13 +118,21 @@ Steps
 1. Open the "bin" file generated.
 2. Select Auto Flash
 3. Select Flash when ready  
-![QMK Tookbox Image1](/images/Toolkit_1.png)  
+<img src="images/Toolkit_1.png" width=50% height=50%>  
 4. Reset the BDN9 board with small screwdriver pushing the reset button on the back
 5. Wait for the flash to complete  
-![QMK Tookbox Image2](/images/Toolkit_2.png)  
+<img src="images/Toolkit_2.png" width=50% height=50%>  
 
 
 Note:  You should hear the sounds of the USB being disconnected and reconnected at the end.
 
+# Build Images
 
+I was too excited about building out my first board, I totally forgot to take any photos.  The two I have are below.
+
+Here, I used a role of masking tape to hold up the board since the encoders stuck up causing the board to miss-align.  
+<image src="images/bdn9_soldering.jpeg" width=25% height=25%>  
+	
+Final product, prior to custom QMK work, so the LEDs are the default setup.  
+<image src="images/bdn9_finished.jpeg" width=25% height=25%>  
 
