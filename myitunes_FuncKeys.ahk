@@ -19,34 +19,34 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+; F16 - iTunes pause/play toggle (ctl-space)
 F16::
 	DetectHiddenWindows , On 
-	ControlSend , ahk_parent, ^{SPACE}, iTunes ahk_class iTunes
+    ; Had to use the {Ctrl down} .. {Ctrl up} syntax due to odd conflicts with QMK
+	; was not getting a consistent key presses...
+	ControlSend , ahk_parent, {Ctrl down}{SPACE}{Ctrl up}, iTunes ahk_class iTunes
 	DetectHiddenWindows , Off
 	return
 	
+; F19 - iTunes next (ctl-right arrow)
 F19::
 	DetectHiddenWindows , On 
-	ControlSend , ahk_parent, ^{right}, iTunes ahk_class iTunes
+	ControlSend , ahk_parent, {Ctrl down}{right}{Ctrl up}, iTunes ahk_class iTunes
 	DetectHiddenWindows , Off
 	return
-	
+
+; F14 - iTunes back (ctl-left arrow)
 F14::
 	DetectHiddenWindows , On 
-	ControlSend , ahk_parent, ^{left}, iTunes ahk_class iTunes
+	ControlSend , ahk_parent, {Ctrl down}{left}{Ctrl up}, iTunes ahk_class iTunes
 	DetectHiddenWindows , Off
 	return
-	
-;Numpad8::
-;	SoundSet, +5
-;	return
-	
-;Numpad2::
-;	SoundSet, -5
-;	return
-	
+
+; F17 - iTunes mini player toggle (ctl-shit-M)	
 F17::
 	DetectHiddenWindows , On 
-	ControlSend , ahk_parent, {shift}^M, iTunes ahk_class iTunes
+	; Above ControlSend syntax did not work...and the below is stable...no clue.
+	; Note:  Can take several seconds for iTunes to toggle mini-viewer
+	ControlSend , ahk_parent, {Shift}^M, iTunes ahk_class iTunes
 	DetectHiddenWindows , Off
 	return
