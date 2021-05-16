@@ -90,16 +90,27 @@ https://docs.qmk.fm/#/newbs
 
 Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable for me.  
 
-*Note: Rough notes, probably incomplete*    
+*Note: Rough notes, probably incomplete*  
 Commands I used:  
+Initial setup of QMK  
 ```qmk setup
 qmk config user.keyboard=keebio/bdn9/rev2
 qmk config user.keymap=f-eq-ma
-qmk new-keymap   ## Builds folder ./keyboards/keebio/bdn9/keymaps/f-eq-ma
+```
 
+Some nice to haves...  
+```
 set -o vi       ## vi is just better
 alias vi='vim'  ## I'm old
+```
 
+Create a new keymap.  This will build a folder (./keyboards/keebio/bdn9/keymaps/f-eq-ma) and copies in the default setup.  
+```
+qmk new-keymap   ## Builds folder ./keyboards/keebio/bdn9/keymaps/f-eq-ma
+```
+
+Switch the new keymap directory and download the files.  
+```
 cd keyboards/keebio/bdn9/keymaps/f-eq-ma
 
 ## replace with github contents
@@ -107,16 +118,18 @@ rm keymap.c
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/keymap.c
 rm config.h
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/config.h
-
-## !!Be Patient!!
-qmk compile -kb keebio/bdn9/rev2 -km f-eq-ma
-
-## Should see a message like the following.
-Copying keebio_bdn9_rev2_f-eq-ma.bin to qmk_firmware folder            [OK]
-
-## This is the "bin" file to use in the QMK Toolbox application to flash the BDN9
-##   If you have a "hex" file, then you built against the "rev1" board.
 ```
+
+Now, time to compile.  !!Be Patient!!  It takes time.  
+```
+qmk compile -kb keebio/bdn9/rev2 -km f-eq-ma
+```
+
+At the end, you should see a message like the following.  
+```
+Copying keebio_bdn9_rev2_f-eq-ma.bin to qmk_firmware folder            [OK]
+```
+This is the "bin" file to use in the QMK Toolbox application to flash the BDN9.   If you have a "hex" file, then you built against the "rev1" board.
 
 # QMK Toolkit  
 
