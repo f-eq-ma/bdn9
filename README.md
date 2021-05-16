@@ -74,9 +74,8 @@ TODO:  Figure out how to get this exe to start automatically on Windows boot.  S
 # QMK
 Doc - https://docs.qmk.fm/#/
 
-QMK Configurator for the BDN9 board at  
-https://config.qmk.fm/#/keebio/bdn9/rev2/LAYOUT  
-But it does not support changes to the Encoders....must use QMK to hand compile.  
+QMK Configurator for the BDN9 board can be used at https://config.qmk.fm/#/keebio/bdn9/rev2/LAYOUT  
+BUT, it does not support changes to the Encoders....must use QMK to hand compile.  What the QMK Configurator is good for is to test the key strokes detected.  See https://config.qmk.fm/#/test
 
 QMK Toolbox - https://github.com/qmk/qmk_toolbox/releases  
 Used to flash the firmware to the BDN9
@@ -85,7 +84,7 @@ QMK Setup Instructions:
 https://docs.qmk.fm/#/newbs  
 * Setup QMK MSYS environment per instructions  
 
-Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable  
+Note: QMK MSYS appears to be a Unix environment on Windows...so nice and comfortable for me.  
 
 *Note: Rough notes, probably incomplete*    
 Commands I used:  
