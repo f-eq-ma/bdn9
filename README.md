@@ -35,7 +35,7 @@ When in the second layer, the "underglow" LEDs will turn red (hard to see, hones
        	---------------------------------------------------------------------
         | F14 (AHK controlled)| F17 (AHK controlled)  | F19 (AHK controlled)|
         ---------------------------------------------------------------------
-        | Toggle(1)           | F18                   | F20                 |
+        | Toggle(1)           | TD(TD_F18_PW)         | F20                 |
      */
 ```
 
@@ -118,6 +118,8 @@ rm keymap.c
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/keymap.c
 rm config.h
 wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/config.h
+rm rules.mk
+wget https://raw.githubusercontent.com/f-eq-ma/bdn9/main/rules.mk
 ```
 
 Now, time to compile.  !!Be Patient!!  It takes time.  

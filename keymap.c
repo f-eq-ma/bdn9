@@ -35,32 +35,52 @@ enum my_layers {
   _LED         // Fun with LEDs
 };
 
+enum {
+        TD_F18_PW
+};
+
+void td_f18_pw_func(qk_tap_dance_state_t *state, void *user_data) {
+     if (state->count == 1) {
+             register_code16(KC_F18);
+             unregister_code16(KC_F18);
+     } else {
+             SEND_STRING("Test");
+             reset_tap_dance(state);
+     }
+}
+
+//Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+        [TD_F18_PW] = ACTION_TAP_DANCE_FN(td_f18_pw_func)
+};
+
 // AutoHotKey (AHK) - installed and configured independently
 //   F14 - iTunes back (ctl-left arrow)
 //   F16 - iTunes pause/play toggle (ctl-space)
 //   F17 - iTunes mini player toggle (ctl-shit-M)
 //   F19 - iTunes next (ctl-right arrow)
+//   F18 - Doubletab PW
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
         | Knob 1: Vol Dn/Up   |                       | Knob 2: RBG+        |
         | Press: Mute         | F16 (AHK controlled)  | Press: RBG off/on   |
-	---------------------------------------------------------------------
+        ---------------------------------------------------------------------
         | F14 (AHK controlled)| F17 (AHK controlled)  | F19 (AHK controlled)|
-	---------------------------------------------------------------------
-        | Toggle(1)           | F18                   | F20                 |
+        ---------------------------------------------------------------------
+        | Toggle(1)           | TD(TD_F18_PW)         | F20                 |
      */
     [_BASE] = LAYOUT(
         KC_MUTE, KC_F16, RGB_TOG,
         KC_F14 , KC_F17, KC_F19,
-        TG(1)  , KC_F18, KC_F20
+        TG(1)  , TD(TD_F18_PW), KC_F20
     ),
     /*
         | Knob 1: Hue        |                    | Knob 2: LED Speed  |
         | Press: Mute        | (Falls to layer 0) | Press: RBG off/on  |
-      	---------------------------------------------------------------
+        ---------------------------------------------------------------
         | RGB Mode Plain     | RGB Mode Breathing | (Falls to layer 0) |
-	---------------------------------------------------------------
+        ---------------------------------------------------------------
         | (Falls to layer 0) | RGB Mode Swirl     | RGB Mode Rainbow   |
      */
     [_LED] = LAYOUT(
@@ -73,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Called once at end of initialization.  Good to overwrite default settings
 // I cannot seem to get this to work.....
 void keyboard_post_init_user(void) {
-//	rgblight_enable_noeeprom();  // Enabled RGB, without saving settings
-//	rgblight_sethsv_noeeprom(169,255,255);  // Blue
-//	rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+//      rgblight_enable_noeeprom();  // Enabled RGB, without saving settings
+//      rgblight_sethsv_noeeprom(169,255,255);  // Blue
+//      rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
 //      rgb_matrix_set_color(10, 255, 0, 0);
 //      rgb_matrix_set_color(9, 255, 0, 0);
 }
@@ -84,15 +104,15 @@ void keyboard_post_init_user(void) {
 //   Only include if RGB_MATRIX_ENABLE is true (#ifdef)
 #ifdef RGB_MATRIX_ENABLE
 void rgb_matrix_indicators_user(void) {
-	switch(get_highest_layer(layer_state)) {
-		case _BASE:
-			break;
-		case _LED:
-		    // Set LEDs 9 and 10 to be "red" to indicate layer 1
-			rgb_matrix_set_color(9,255,0,0);
-			rgb_matrix_set_color(10,255,0,0);
-			break;
-	}
+        switch(get_highest_layer(layer_state)) {
+                case _BASE:
+                        break;
+                case _LED:
+                    // Set LEDs 9 and 10 to be "red" to indicate layer 1
+                        rgb_matrix_set_color(9,255,0,0);
+                        rgb_matrix_set_color(10,255,0,0);
+                        break;
+        }
 }
 #endif
 
@@ -100,17 +120,17 @@ void rgb_matrix_indicators_user(void) {
 //layer_state_t layer_state_set_user(layer_state_t state) {
 //   switch(get_highest_layer(state)) {
 //   case _BASE:
-//	   break;
+//         break;
 //   case _LED:
-//	   break;
+//         break;
 //   default:  // for any other layers, or the default layer
-//	   break;
+//         break;
 //   }
 //   return state;
 //}
 
 // Called when encoder is twisted.  Flex on layer
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     uint8_t layer = get_highest_layer(layer_state);
     switch (layer) {
        case _BASE:
@@ -120,14 +140,14 @@ void encoder_update_user(uint8_t index, bool clockwise) {
               } else {
                   tap_code(KC_VOLD); // volume down
               }
-	  }
+          }
           else if (index == _RIGHT) {
               if (clockwise) {
                   rgblight_step(); // change lighting effects
               } else {
                   rgblight_step_reverse();
               }
-	  }
+          }
           break;
        case _LED:
           if (index == _LEFT) {
@@ -146,5 +166,5 @@ void encoder_update_user(uint8_t index, bool clockwise) {
           }
           break;
     }
+    return true;
 }
-
